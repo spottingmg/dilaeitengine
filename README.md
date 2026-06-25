@@ -7,8 +7,17 @@ Docker-Image eingebacken; die Echtzeitdaten werden zur Laufzeit live abgefragt
 
 ## Daten-Quelle
 
-- Solldaten: https://gtfs.de/de/feeds/de_full/ (CC BY 4.0, DELFI e.V.)
+- Solldaten: NRW-weiter GTFS-Feed (VRR, VRS, AVV, NWL) -- https://open.nrw/dataset/soll-fahrplandaten-nrw-oepnv
+  (wöchentlich aktualisiert, Beta-Qualität laut Anbieter)
 - Echtzeit:  https://stc.traines.eu/mirror/german-delfi-gtfs-rt/latest.gtfs-rt.pbf
+  (deutschlandweit, MOTIS matched automatisch nur Trips aus den NRW-Solldaten)
+
+## Warum nur NRW statt ganz Deutschland?
+
+Render Free Tier hat nur 512MB RAM. Der komplette Deutschland-Datensatz
+(1,7 Mio. Trips) hat das gesprengt (Out of Memory). NRW-weit ist deutlich
+kleiner und passt eher. Bei Bedarf später auf einen größeren/eigenen
+Server umziehen, um wieder auf ganz Deutschland zu erweitern.
 
 ## Setup auf Render
 
