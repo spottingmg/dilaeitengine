@@ -8,7 +8,7 @@ server:
 
 timetable:
   first_day: TODAY
-  num_days: 64
+  num_days: 30
   extend_missing_footpaths: true
   datasets:
     de:
