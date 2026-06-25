@@ -1,0 +1,26 @@
+server:
+  host: 0.0.0.0
+  port: 8080
+  data_attribution_link: https://creativecommons.org/licenses/by/4.0/
+
+# Kein "osm:" Eintrag -> kein Straßenrouting/Karten/Geocoding,
+# dadurch deutlich weniger RAM-Bedarf (passt eher in Render Free Tier 512MB)
+
+timetable:
+  first_day: TODAY
+  num_days: 64
+  extend_missing_footpaths: true
+  datasets:
+    de:
+      path: /input/GTFS.zip
+      rt:
+        # Offizieller DELFI-Echtzeit-Mirror (GTFS-RT, ganz Deutschland)
+        # Wird IMMER live abgefragt -- kann nicht "eingebacken" werden,
+        # da sich Verspätungen ständig ändern.
+        - url: https://stc.traines.eu/mirror/german-delfi-gtfs-rt/latest.gtfs-rt.pbf
+
+limits:
+  stoptimes_max_results: 128
+  plan_max_results: 64
+  plan_max_search_window_minutes: 1440
+  routing_max_timeout_seconds: 30
